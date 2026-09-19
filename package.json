@@ -1,0 +1,24 @@
+{
+  "name": "psychotherapists-api",
+  "version": "1.0.0",
+  "description": "Project Api for  week 3 and week 4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willlyca31-lab/psychotherapists-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/willlyca31-lab/psychotherapists-api/issues"
+  },
+  "homepage": "https://github.com/willlyca31-lab/psychotherapists-api#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
