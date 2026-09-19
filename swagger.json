@@ -1,0 +1,367 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Psychotherapists and Appointments API",
+    "description": "REST API for managing psychotherapists and appointments.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/psychotherapists": {
+      "get": {
+        "summary": "Get all psychotherapists",
+        "responses": {
+          "200": {
+            "description": "List of psychotherapists"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new psychotherapist",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PsychotherapistInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Psychotherapist created successfully"
+          },
+          "400": {
+            "description": "Invalid data"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+
+    "/psychotherapists/by-id": {
+      "get": {
+        "summary": "Get one psychotherapist by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "Psychotherapist ID",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Psychotherapist found"
+          },
+          "400": {
+            "description": "Invalid ID"
+          },
+          "404": {
+            "description": "Psychotherapist not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+
+    "/appointments": {
+      "get": {
+        "summary": "Get all appointments",
+        "responses": {
+          "200": {
+            "description": "List of appointments"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new appointment",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppointmentInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Appointment created successfully"
+          },
+          "400": {
+            "description": "Invalid data"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+
+    "/appointments/by-id": {
+      "get": {
+        "summary": "Get one appointment by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "Appointment ID",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Appointment found"
+          },
+          "400": {
+            "description": "Invalid ID"
+          },
+          "404": {
+            "description": "Appointment not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+
+    "/appointments/{id}": {
+      "put": {
+        "summary": "Update an appointment",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppointmentInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Appointment updated successfully"
+          },
+          "400": {
+            "description": "Invalid data"
+          },
+          "404": {
+            "description": "Appointment not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an appointment",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Appointment deleted successfully"
+          },
+          "400": {
+            "description": "Invalid ID"
+          },
+          "404": {
+            "description": "Appointment not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+
+    "/psychotherapists/{id}": {
+      "put": {
+        "summary": "Update a psychotherapist",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PsychotherapistInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Psychotherapist updated successfully"
+          },
+          "400": {
+            "description": "Invalid data"
+          },
+          "404": {
+            "description": "Psychotherapist not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a psychotherapist",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Psychotherapist deleted successfully"
+          },
+          "400": {
+            "description": "Invalid ID"
+          },
+          "404": {
+            "description": "Psychotherapist not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    }
+  },
+
+  "components": {
+    "parameters": {
+      "id": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "Record ID",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+
+    "schemas": {
+      "PsychotherapistInput": {
+        "type": "object",
+        "required": [
+          "firstName",
+          "lastName",
+          "email",
+          "specialty",
+          "therapyApproach",
+          "yearsOfExperience",
+          "city",
+          "country"
+        ],
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "Olivia"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Garcia"
+          },
+          "email": {
+            "type": "string",
+            "example": "olivia.garcia@example.com"
+          },
+          "specialty": {
+            "type": "string",
+            "example": "Anxiety Counseling"
+          },
+          "therapyApproach": {
+            "type": "string",
+            "example": "Cognitive Behavioral Therapy"
+          },
+          "yearsOfExperience": {
+            "type": "integer",
+            "example": 5
+          },
+          "city": {
+            "type": "string",
+            "example": "Queretaro"
+          },
+          "country": {
+            "type": "string",
+            "example": "Mexico"
+          }
+        }
+      },
+
+      "AppointmentInput": {
+        "type": "object",
+        "required": [
+          "psychotherapistId",
+          "patientName",
+          "appointmentDate",
+          "appointmentTime",
+          "status"
+        ],
+        "properties": {
+          "psychotherapistId": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1884858585858
+          },
+          "patientName": {
+            "type": "string",
+            "example": "James Anderson"
+          },
+          "appointmentDate": {
+            "type": "string",
+            "example": "2026-09-25"
+          },
+          "appointmentTime": {
+            "type": "string",
+            "example": "10:00"
+          },
+          "status": {
+            "type": "string",
+            "example": "Scheduled"
+          }
+        }
+      }
+    }
+  }
+}

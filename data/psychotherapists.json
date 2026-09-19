@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1884858585858,
+    "firstName": "Sofia",
+    "lastName": "Morales",
+    "email": "sofia.morales@example.com",
+    "specialty": "Anxiety and Stress",
+    "therapyApproach": "Cognitive Behavioral Therapy",
+    "yearsOfExperience": 8,
+    "city": "Queretaro",
+    "country": "Mexico"
+  },
+  {
+    "id": 1884858585859,
+    "firstName": "Daniel",
+    "lastName": "Rivera",
+    "email": "daniel.rivera@example.com",
+    "specialty": "Depression",
+    "therapyApproach": "Acceptance and Commitment Therapy",
+    "yearsOfExperience": 12,
+    "city": "Mexico City",
+    "country": "Mexico"
+  },
+  {
+    "id": 1884858585860,
+    "firstName": "Camila",
+    "lastName": "Torres",
+    "email": "camila.torres@example.com",
+    "specialty": "Family Therapy",
+    "therapyApproach": "Systemic Therapy",
+    "yearsOfExperience": 10,
+    "city": "Monterrey",
+    "country": "Mexico"
+  },
+  {
+    "id": 1884858585861,
+    "firstName": "Marcus",
+    "lastName": "Thompson",
+    "email": "marcus.thompson@example.com",
+    "specialty": "Trauma and PTSD",
+    "therapyApproach": "EMDR",
+    "yearsOfExperience": 15,
+    "city": "Austin",
+    "country": "United States"
+  },
+  {
+    "id": 1884858585862,
+    "firstName": "Isabella",
+    "lastName": "Chen",
+    "email": "isabella.chen@example.com",
+    "specialty": "Adolescent Psychology",
+    "therapyApproach": "Cognitive Behavioral Therapy",
+    "yearsOfExperience": 7,
+    "city": "Toronto",
+    "country": "Canada"
+  },
+  {
+    "id": 1884858585863,
+    "firstName": "Gabriel",
+    "lastName": "Anderson",
+    "email": "gabriel.anderson@example.com",
+    "specialty": "Relationship Counseling",
+    "therapyApproach": "Emotionally Focused Therapy",
+    "yearsOfExperience": 11,
+    "city": "London",
+    "country": "United Kingdom"
+  },
+  {
+    "id": 1884858585864,
+    "firstName": "Elena",
+    "lastName": "Bennett",
+    "email": "elena.bennett@example.com",
+    "specialty": "Grief Counseling",
+    "therapyApproach": "Person-Centered Therapy",
+    "yearsOfExperience": 9,
+    "city": "Paris",
+    "country": "France"
+  },
+  {
+    "id": 1884858585865,
+    "firstName": "Nathan",
+    "lastName": "Brooks",
+    "email": "nathan.brooks@example.com",
+    "specialty": "Child Psychology",
+    "therapyApproach": "Play Therapy",
+    "yearsOfExperience": 6,
+    "city": "Miami",
+    "country": "United States"
+  },
+  {
+    "id": 1884858585866,
+    "firstName": "Amelia",
+    "lastName": "Dubois",
+    "email": "amelia.dubois@example.com",
+    "specialty": "Self-Esteem and Personal Development",
+    "therapyApproach": "Humanistic Therapy",
+    "yearsOfExperience": 9,
+    "city": "Montreal",
+    "country": "Canada"
+  },
+  {
+    "id": 1884858585867,
+    "firstName": "Javier",
+    "lastName": "Castillo",
+    "email": "javier.castillo@example.com",
+    "specialty": "Addiction Counseling",
+    "therapyApproach": "Motivational Interviewing",
+    "yearsOfExperience": 14,
+    "city": "Madrid",
+    "country": "Spain"
+  }
+]

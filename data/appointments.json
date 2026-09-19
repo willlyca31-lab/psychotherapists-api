@@ -1,0 +1,82 @@
+[
+  {
+    "id": 2884858585858,
+    "psychotherapistId": 1884858585858,
+    "patientName": "Maria Lopez",
+    "appointmentDate": "2026-09-20",
+    "appointmentTime": "09:00",
+    "status": "Scheduled"
+  },
+  {
+    "id": 2884858585859,
+    "psychotherapistId": 1884858585859,
+    "patientName": "Carlos Hernandez",
+    "appointmentDate": "2026-09-20",
+    "appointmentTime": "10:00",
+    "status": "Scheduled"
+  },
+  {
+    "id": 2884858585860,
+    "psychotherapistId": 1884858585860,
+    "patientName": "Ana Martinez",
+    "appointmentDate": "2026-09-21",
+    "appointmentTime": "11:00",
+    "status": "Confirmed"
+  },
+  {
+    "id": 2884858585861,
+    "psychotherapistId": 1884858585861,
+    "patientName": "John Smith",
+    "appointmentDate": "2026-09-21",
+    "appointmentTime": "14:00",
+    "status": "Scheduled"
+  },
+  {
+    "id": 2884858585862,
+    "psychotherapistId": 1884858585862,
+    "patientName": "Emily Johnson",
+    "appointmentDate": "2026-09-22",
+    "appointmentTime": "09:30",
+    "status": "Confirmed"
+  },
+  {
+    "id": 2884858585863,
+    "psychotherapistId": 1884858585863,
+    "patientName": "Robert Williams",
+    "appointmentDate": "2026-09-22",
+    "appointmentTime": "13:00",
+    "status": "Scheduled"
+  },
+  {
+    "id": 2884858585864,
+    "psychotherapistId": 1884858585864,
+    "patientName": "Sophie Martin",
+    "appointmentDate": "2026-09-23",
+    "appointmentTime": "10:30",
+    "status": "Completed"
+  },
+  {
+    "id": 2884858585865,
+    "psychotherapistId": 1884858585865,
+    "patientName": "David Brown",
+    "appointmentDate": "2026-09-23",
+    "appointmentTime": "15:00",
+    "status": "Scheduled"
+  },
+  {
+    "id": 2884858585866,
+    "psychotherapistId": 1884858585866,
+    "patientName": "Laura Wilson",
+    "appointmentDate": "2026-09-24",
+    "appointmentTime": "11:30",
+    "status": "Confirmed"
+  },
+  {
+    "id": 2884858585867,
+    "psychotherapistId": 1884858585867,
+    "patientName": "Miguel Garcia",
+    "appointmentDate": "2026-09-24",
+    "appointmentTime": "16:00",
+    "status": "Scheduled"
+  }
+]
