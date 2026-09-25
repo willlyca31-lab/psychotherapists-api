@@ -2,6 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
+const { isLoggedIn } = require("../middleware/auth");
+
 const {
   getAllAppointments,
   getAppointmentById,
@@ -18,16 +20,16 @@ router.get("/", getAllAppointments);
 // Example: GET /appointments/by-id?id=2884858585858
 router.get("/by-id", getAppointmentById);
 
-// POST - Create a new appointment
+// POST - Create a new appointment (requires GitHub login)
 // Example: POST /appointments
-router.post("/", createAppointment);
+router.post("/", isLoggedIn, createAppointment);
 
-// PUT - Update an appointment
+// PUT - Update an appointment (requires GitHub login)
 // Example: PUT /appointments/2884858585858
-router.put("/:id", updateAppointment);
+router.put("/:id", isLoggedIn, updateAppointment);
 
-// DELETE - Delete an appointment
+// DELETE - Delete an appointment (requires GitHub login)
 // Example: DELETE /appointments/2884858585858
-router.delete("/:id", deleteAppointment);
+router.delete("/:id", isLoggedIn, deleteAppointment);
 
 module.exports = router;

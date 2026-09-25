@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Psychotherapists and Appointments API",
-    "description": "REST API for managing psychotherapists and appointments.",
+    "description": "REST API for managing psychotherapists and appointments, secured with GitHub OAuth for user management. GET routes are public; POST, PUT, and DELETE routes require the caller to be logged in via GET /auth/github.",
     "version": "1.0.0"
   },
   "servers": [
@@ -44,11 +44,18 @@
           },
           "500": {
             "description": "Server error"
+          },
+          "401": {
+            "description": "Not authenticated - GitHub login required"
           }
-        }
+        },
+        "security": [
+          {
+            "githubOAuthSession": []
+          }
+        ]
       }
     },
-
     "/psychotherapists/by-id": {
       "get": {
         "summary": "Get one psychotherapist by ID",
@@ -80,7 +87,6 @@
         }
       }
     },
-
     "/appointments": {
       "get": {
         "summary": "Get all appointments",
@@ -114,11 +120,18 @@
           },
           "500": {
             "description": "Server error"
+          },
+          "401": {
+            "description": "Not authenticated - GitHub login required"
           }
-        }
+        },
+        "security": [
+          {
+            "githubOAuthSession": []
+          }
+        ]
       }
     },
-
     "/appointments/by-id": {
       "get": {
         "summary": "Get one appointment by ID",
@@ -150,7 +163,6 @@
         }
       }
     },
-
     "/appointments/{id}": {
       "put": {
         "summary": "Update an appointment",
@@ -181,8 +193,16 @@
           },
           "500": {
             "description": "Server error"
+          },
+          "401": {
+            "description": "Not authenticated - GitHub login required"
           }
-        }
+        },
+        "security": [
+          {
+            "githubOAuthSession": []
+          }
+        ]
       },
       "delete": {
         "summary": "Delete an appointment",
@@ -203,11 +223,18 @@
           },
           "500": {
             "description": "Server error"
+          },
+          "401": {
+            "description": "Not authenticated - GitHub login required"
           }
-        }
+        },
+        "security": [
+          {
+            "githubOAuthSession": []
+          }
+        ]
       }
     },
-
     "/psychotherapists/{id}": {
       "put": {
         "summary": "Update a psychotherapist",
@@ -238,8 +265,16 @@
           },
           "500": {
             "description": "Server error"
+          },
+          "401": {
+            "description": "Not authenticated - GitHub login required"
           }
-        }
+        },
+        "security": [
+          {
+            "githubOAuthSession": []
+          }
+        ]
       },
       "delete": {
         "summary": "Delete a psychotherapist",
@@ -260,12 +295,64 @@
           },
           "500": {
             "description": "Server error"
+          },
+          "401": {
+            "description": "Not authenticated - GitHub login required"
+          }
+        },
+        "security": [
+          {
+            "githubOAuthSession": []
+          }
+        ]
+      }
+    },
+    "/auth/github": {
+      "get": {
+        "summary": "Start GitHub OAuth login",
+        "description": "Redirects the user to GitHub to authorize the app.",
+        "responses": {
+          "302": {
+            "description": "Redirect to GitHub for authentication"
+          }
+        }
+      }
+    },
+    "/auth/github/callback": {
+      "get": {
+        "summary": "GitHub OAuth callback",
+        "description": "GitHub redirects here after the user authorizes (or denies) the app. Establishes a logged-in session.",
+        "responses": {
+          "200": {
+            "description": "Logged in successfully"
+          },
+          "401": {
+            "description": "GitHub authentication failed"
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "get": {
+        "summary": "Log out the current user",
+        "responses": {
+          "200": {
+            "description": "Logged out successfully"
+          }
+        }
+      }
+    },
+    "/auth/status": {
+      "get": {
+        "summary": "Check current login status",
+        "responses": {
+          "200": {
+            "description": "Returns whether a user is currently logged in"
           }
         }
       }
     }
   },
-
   "components": {
     "parameters": {
       "id": {
@@ -279,7 +366,6 @@
         }
       }
     },
-
     "schemas": {
       "PsychotherapistInput": {
         "type": "object",
@@ -328,7 +414,6 @@
           }
         }
       },
-
       "AppointmentInput": {
         "type": "object",
         "required": [
@@ -361,6 +446,14 @@
             "example": "Scheduled"
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "githubOAuthSession": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "connect.sid",
+        "description": "Log in first via GET /auth/github (GitHub OAuth). The session cookie returned is then required for POST/PUT/DELETE routes."
       }
     }
   }

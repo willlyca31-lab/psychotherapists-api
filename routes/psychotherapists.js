@@ -2,6 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
+const { isLoggedIn } = require("../middleware/auth");
+
 const {
   getAllPsychotherapists,
   getPsychotherapistById,
@@ -18,16 +20,16 @@ router.get("/", getAllPsychotherapists);
 // Example: GET /psychotherapists/by-id?id=1884858585858
 router.get("/by-id", getPsychotherapistById);
 
-// POST - Create a new psychotherapist
+// POST - Create a new psychotherapist (requires GitHub login)
 // Example: POST /psychotherapists
-router.post("/", createPsychotherapist);
+router.post("/", isLoggedIn, createPsychotherapist);
 
-// PUT - Update a psychotherapist
+// PUT - Update a psychotherapist (requires GitHub login)
 // Example: PUT /psychotherapists/1884858585858
-router.put("/:id", updatePsychotherapist);
+router.put("/:id", isLoggedIn, updatePsychotherapist);
 
-// DELETE - Delete a psychotherapist
+// DELETE - Delete a psychotherapist (requires GitHub login)
 // Example: DELETE /psychotherapists/1884858585858
-router.delete("/:id", deletePsychotherapist);
+router.delete("/:id", isLoggedIn, deletePsychotherapist);
 
 module.exports = router;
